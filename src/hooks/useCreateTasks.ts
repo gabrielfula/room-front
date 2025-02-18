@@ -1,4 +1,4 @@
-import { productFormData } from "@/schemas/Tasks/products.schema";
+import { taskFormData } from "@/schemas/Tasks/tasks.schema";
 import { queryClient } from "@/services/react-query";
 import { TaskService } from "@/services/task.service";
 import { useMutation } from "@tanstack/react-query";
@@ -6,7 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 
 export default  function useCreateTasks() {
   return useMutation({
-    mutationFn: async (data: productFormData) => await TaskService.create(data),
+    mutationFn: async (data: taskFormData) => await TaskService.create(data),
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ["tasks"]

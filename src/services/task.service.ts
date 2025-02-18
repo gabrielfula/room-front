@@ -3,11 +3,11 @@ import { authInstance } from "./axios";
 import { updateTaskFormData } from "@/schemas/Tasks/update-task.schema";
 
 export class TaskService {
-  static async list() {
+  static async list(filters?: any) {
     try {
       const response = await authInstance({
         method: "GET",
-        url: "/tasks",
+        url: `/tasks?${filters}`,
       })
 
       return response.data.data;

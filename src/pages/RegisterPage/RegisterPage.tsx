@@ -49,7 +49,7 @@ export default function RegisterPage() {
       <form onSubmit={handleSubmit(handleCreateUser)}>
         <div className="flex flex-col gap-5">
           <div>
-            <TextInput name="mail" type="email" label="E-mail" control={control} placeholder="E-mail..." />
+            <TextInput name="email" type="email" label="E-mail" control={control} placeholder="E-mail..." />
           </div>
           <div>
             <div className="relative">
