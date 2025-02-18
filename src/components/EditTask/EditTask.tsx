@@ -29,7 +29,7 @@ export default function EditTask({ task }: EditTaskProps) {
                 Adicione nos campos abaixo detalhes da tarefa editada.
               </DialogDescription>
             </DialogHeader>
-           <FormTask mode="edit" task={task} />
+            <FormTask mode="edit" task={task} onSuccess={() => setIsOpen(false)} />
           </DialogContent>
         </Dialog>
       </div>

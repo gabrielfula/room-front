@@ -5,6 +5,7 @@ export const createTasksFormSchema = z.object({
     .nonempty("Título é obrigatório"),
   description: z.string()
     .nonempty("Descrição é obrigatória"),
+  status: z.string(),
 });
 
 export type taskFormData = z.infer<typeof createTasksFormSchema>;
