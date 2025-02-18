@@ -1,4 +1,4 @@
-import { updateProductFormData } from "@/schemas/Products/update-product.schema";
+import { updateProductFormData } from "@/schemas/Tasks/update-product.schema";
 import { TaskService } from "@/services/task.service";
 import { queryClient } from "@/services/react-query";
 import { useMutation } from "@tanstack/react-query";

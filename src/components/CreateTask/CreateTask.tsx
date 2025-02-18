@@ -12,19 +12,19 @@ import {
 import { useForm } from "react-hook-form";
 import { toast } from "../ui/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createProductFormSchema, productFormData } from "@/schemas/Products/products.schema";
 import { useState } from "react";
 import useCreateTasks from "@/hooks/useCreateTasks";
+import { createTasksFormSchema, taskFormData } from "@/schemas/Tasks/tasks.schema";
 
 export default function CreateTask() {
   const { mutateAsync } = useCreateTasks();
   const [isOpen, setIsOpen] = useState(false);
 
-  const { handleSubmit, reset } = useForm<productFormData>({
-    resolver: zodResolver(createProductFormSchema),
+  const { handleSubmit, reset } = useForm<taskFormData>({
+    resolver: zodResolver(createTasksFormSchema),
   });
 
-  const handleCreateProduct = async (data: productFormData) => {
+  const handleCreateProduct = async (data: taskFormData) => {
     try {
       reset();
       const response = await mutateAsync(data);

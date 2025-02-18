@@ -1,6 +1,6 @@
-import { productFormData } from "@/schemas/Products/products.schema";
+import { productFormData } from "@/schemas/Tasks/products.schema";
 import { authInstance } from "./axios";
-import { updateProductFormData } from "@/schemas/Products/update-product.schema";
+import { updateProductFormData } from "@/schemas/Tasks/update-product.schema";
 
 export class TaskService {
   static async list() {

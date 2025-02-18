@@ -5,21 +5,22 @@ import { toast } from "../ui/use-toast";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { updateProductFormData, updateProductFormSchema } from "@/schemas/Products/update-product.schema";
 import { useState } from "react";
 import { ITasks } from "@/interfaces/tasks";
 import useUpdateTask from "@/hooks/useUpdateTask";
+import { updateTaskFormData } from "@/schemas/Tasks/update-task.schema";
+import { createTasksFormSchema } from "@/schemas/Tasks/tasks.schema";
 
 
 export default function EditTask({ uuid }: ITasks) {
   const { mutateAsync: updateTask } = useUpdateTask();
   const [isOpen, setIsOpen] = useState(false);
 
-  const { handleSubmit, reset } = useForm<updateProductFormData>({
-    resolver: zodResolver(updateProductFormSchema),
+  const { handleSubmit, reset } = useForm<updateTaskFormData>({
+    resolver: zodResolver(createTasksFormSchema),
   });
 
-  const handleUpdateProduct = async (data: updateProductFormData) => {
+  const handleUpdateProduct = async (data: updateTaskFormData) => {
     try {
       reset();
       await updateTask({ uuid, data });

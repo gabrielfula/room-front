@@ -1,4 +1,4 @@
-import { productFormData } from "@/schemas/Products/products.schema";
+import { productFormData } from "@/schemas/Tasks/products.schema";
 import { queryClient } from "@/services/react-query";
 import { TaskService } from "@/services/task.service";
 import { useMutation } from "@tanstack/react-query";
