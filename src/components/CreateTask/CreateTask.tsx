@@ -8,42 +8,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
-import { useForm } from "react-hook-form";
-import { toast } from "../ui/use-toast";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import useCreateTasks from "@/hooks/useCreateTasks";
-import { createTasksFormSchema, taskFormData } from "@/schemas/Tasks/tasks.schema";
+import FormTask from "../FormTask/FormTask";
+
 
 export default function CreateTask() {
-  const { mutateAsync } = useCreateTasks();
+ 
   const [isOpen, setIsOpen] = useState(false);
-
-  const { handleSubmit, reset } = useForm<taskFormData>({
-    resolver: zodResolver(createTasksFormSchema),
-  });
-
-  const handleCreateProduct = async (data: taskFormData) => {
-    try {
-      reset();
-      const response = await mutateAsync(data);
-
-      response && response.success ? setIsOpen(false) : null;
-      
-      toast({
-        title: "Tarefa criada com sucesso!",
-        variant: "default",
-      });
-      
-    } catch (ex: any) {
-      toast({
-        title: "Não foi possível criar a tarefa",
-        variant: "destructive",
-        description: `${ex.response.data.message || "Erro desconhecido"}!`,
-      });
-    }
-  };
 
   return (
     <>
@@ -62,10 +33,7 @@ export default function CreateTask() {
                 Adicione nos campos abaixo detalhes da tarefa.
               </DialogDescription>
             </DialogHeader>
-            <form onSubmit={handleSubmit(handleCreateProduct)} className="flex flex-col gap-4 my-4">
-              {/* add fields here */}
-              <Button type="submit" size="sm" className="px-3">Criar</Button>
-            </form>
+            <FormTask mode="create" />
           </DialogContent>
         </Dialog>
       </div>

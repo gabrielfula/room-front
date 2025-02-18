@@ -1,6 +1,6 @@
-import { productFormData } from "@/schemas/Tasks/products.schema";
+import { taskFormData } from "@/schemas/Tasks/tasks.schema";
 import { authInstance } from "./axios";
-import { updateProductFormData } from "@/schemas/Tasks/update-product.schema";
+import { updateTaskFormData } from "@/schemas/Tasks/update-task.schema";
 
 export class TaskService {
   static async list() {
@@ -29,7 +29,7 @@ export class TaskService {
     }
   }
 
-  static async create(data: productFormData) {
+  static async create(data: taskFormData) {
     try {
       const response = await authInstance({
         method: "POST",
@@ -47,7 +47,7 @@ export class TaskService {
     try {
       const response = await authInstance({
         method: "DELETE",
-        url: `/tasks/delete/${uuid}`,
+        url: `/tasks/${uuid}`,
       })
 
       return response.data;
@@ -56,11 +56,11 @@ export class TaskService {
     }
   }
 
-  static async update(uuid: string, data: updateProductFormData) {
+  static async update(uuid: string, data: updateTaskFormData) {
     try {
       const response = await authInstance({
         method: "PUT",
-        url: `/tasks/update/${uuid}`,
+        url: `/tasks/edit/${uuid}`,
         data,
       })
 

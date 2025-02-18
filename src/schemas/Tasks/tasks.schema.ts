@@ -1,8 +1,8 @@
 import { z } from "zod"
 
 export const createTasksFormSchema = z.object({
-  name: z.string()
-    .nonempty("Nome é obrigatório"),
+  title: z.string()
+    .nonempty("Título é obrigatório"),
   description: z.string()
     .nonempty("Descrição é obrigatória"),
 });

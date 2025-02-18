@@ -24,12 +24,7 @@ export default function ListTasks({ title, description, status, uuid }: ITasks) 
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <EditTask 
-              uuid={uuid} 
-              title={title} 
-              description={description}
-              status={status}
-            />
+            <EditTask task={{ title, description, status, uuid }} />
             <DeleteTask name={title} uuid={uuid} />
             <DetailsTask uuid={uuid} />
           </DropdownMenuContent>
